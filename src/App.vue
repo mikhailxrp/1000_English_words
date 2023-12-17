@@ -1,26 +1,30 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import TehHeader from './components/TheHeader.vue'
+import TheOverlay from './components/TheOverlay.vue';
+import TheModalWindow from './components/TheModalWindow.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TehHeader,
+    TheOverlay,
+    TheModalWindow
+  },
+  data(){
+    return {
+      isActive: false
+    }
   }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<template>
+  <teh-header></teh-header>
+  <the-overlay :class="this.$store.state.isActiveModal ? 'visible' : ''"></the-overlay>
+  <the-modal-window :class="this.$store.state.isActiveModal ? 'show' : ''"></the-modal-window>
+  <router-view></router-view>
+  
+</template>
+
+<style>
+  @import url('./assets/style/style.css');
 </style>
