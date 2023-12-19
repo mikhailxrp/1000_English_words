@@ -241,3 +241,9 @@ body {
 .table-body::-webkit-scrollbar-thumb {
   background-color: #223c50;
 }
+.btn-wrapper-all-words{
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 10px;
+}

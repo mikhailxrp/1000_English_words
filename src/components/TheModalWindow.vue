@@ -1,6 +1,24 @@
 <script>
 export default {
   name: 'TheModalWindow',
+  data(){
+    return {
+      enValue: '',
+      ruValue: ''
+    }
+  },
+  methods: {
+    addWord(){
+      this.$store.commit({
+        type: 'addNewWord',
+        enValue: this.enValue,
+        ruValue: this.ruValue
+      })
+      this.enValue = '',
+      this.ruValue = ''
+      this.$store.commit('closeModal')
+    }
+  }
 };
 </script>
 
@@ -17,17 +35,17 @@ export default {
       ></button>
     </div>
 
-    <form style="min-width: 320px">
+    <form style="min-width: 320px" @submit.prevent>
       <div class="mb-3">
         <label for="englishWord" class="form-label">Введите новое слово для изучения</label>
-        <input type="text" class="form-control" id="englishWord" aria-describedby="wordHelp" />
+        <input type="text" class="form-control" v-model="enValue" id="englishWord" aria-describedby="wordHelp" />
       </div>
       <div class="mb-3">
         <label for="translationWord" class="form-label">Перевод слова</label>
-        <input type="text" class="form-control" id="translationWord" />
+        <input type="text" class="form-control" v-model="ruValue" id="translationWord" />
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Добавить слово</button>
+        <button class="btn btn-primary" @click="addWord">Добавить слово</button>
       </div>
     </form>
   </div>

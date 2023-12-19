@@ -19,8 +19,8 @@ export default {
 
 <template>
   <teh-header></teh-header>
-  <the-overlay :class="this.$store.state.isActiveModal ? 'visible' : ''"></the-overlay>
-  <the-modal-window :class="this.$store.state.isActiveModal ? 'show' : ''"></the-modal-window>
+  <the-overlay :class="$store.getters.modalFlag ? 'visible' : ''"></the-overlay>
+  <the-modal-window :class="$store.getters.modalFlag ? 'show' : ''"></the-modal-window>
   <router-view></router-view>
   
 </template>
