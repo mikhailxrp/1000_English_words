@@ -15,8 +15,8 @@ export default {
     <div class="table-body">
       <div class="table-row" v-for="(word, index) in $store.getters.learned" :key="word.id">
         <p style="width: 50px; text-align: center">{{ index + 1 }}</p>
-        <p style="width: 100%; text-align: center">{{ word.enText }}</p>
-        <p style="width: 100%; text-align: center">{{ word.ruText }}</p>
+        <p style="width: 100%; text-align: center">{{ word.en_text }}</p>
+        <p style="width: 100%; text-align: center">{{ word.ru_text }}</p>
       </div>
     </div>
   </div>

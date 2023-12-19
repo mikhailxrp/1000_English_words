@@ -1,8 +1,8 @@
 export default class Card {
-  constructor(id, enText, ruText, marked = false) {
+  constructor(id, en_text, ru_text, marked = false) {
     this.id = id;
-    this.enText = enText;
-    this.ruText = ruText;
+    this.en_text = en_text;
+    this.ru_text = ru_text;
     this.marked = marked;
   }
 }

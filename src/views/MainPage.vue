@@ -1,6 +1,9 @@
 <script>
 export default {
   name: 'MainPage',
+  mounted() {
+    this.$store.dispatch('getWords');
+  },
 };
 </script>
 

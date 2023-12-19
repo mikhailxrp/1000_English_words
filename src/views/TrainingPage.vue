@@ -29,9 +29,9 @@ export default {
         <div class="v-card-carousel">
           <div v-for="(word, index) in words" :key="word.id" style="max-width: 500px">
             <transition name="fade">
-              <card-component 
-                :enText="word.enText" 
-                :ruText="word.ruText"
+              <card-component
+                :en_text="word.en_text"
+                :ru_text="word.ru_text"
                 :id="word.id"
                 :marked="word.marked"
                 v-if="index === this.$store.getters.countWords"
@@ -41,13 +41,7 @@ export default {
         </div>
       </div>
 
-      <button 
-        type="button" 
-        class="btn btn-primary next-btn mb-3" 
-        @click="nextWord"
-        >
-        перейти к следующему слову
-      </button>
+      <button type="button" class="btn btn-primary next-btn mb-3" @click="nextWord">перейти к следующему слову</button>
     </div>
   </section>
 </template>

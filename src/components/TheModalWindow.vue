@@ -9,14 +9,15 @@ export default {
   },
   methods: {
     addWord(){
-      this.$store.commit({
+      this.$store.dispatch({
         type: 'addNewWord',
-        enValue: this.enValue,
+        enValue: this.enValue, 
         ruValue: this.ruValue
       })
       this.enValue = '',
       this.ruValue = ''
       this.$store.commit('closeModal')
+      
     }
   }
 };

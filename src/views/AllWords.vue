@@ -19,20 +19,25 @@ export default {
     openModal(){
       this.$store.commit('openModal')
     },
-    markedWords(){
+    async markedWords(){
+      this.$store.dispatch('learned');
       this.markedFlag = true
-      this.toLearnFlag = false
+      this.toLearnFlag = false    
     },
-    toLearnWords(){
-      this.$store.commit('learnWords')
+    async toLearnWords(){
+      this.$store.dispatch('learn');
       this.toLearnFlag = true
       this.markedFlag = false
     },
     allWords(){
+      this.$store.dispatch('getWords');
       this.toLearnFlag = false
       this.markedFlag = false
-    }
+    },
   },
+  mounted(){
+    this.$store.dispatch('getWords');
+  }
 };
 </script>
 
